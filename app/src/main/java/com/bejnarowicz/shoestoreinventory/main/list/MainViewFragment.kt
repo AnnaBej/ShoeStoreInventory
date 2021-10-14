@@ -36,7 +36,7 @@ class MainViewFragment : Fragment() {
 
         mShoeViewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
         mShoeViewModel.getAllShoes.observe(viewLifecycleOwner, { shoe ->
-            adapter.setData(shoe)
+            adapter.submitList(shoe)
         })
 
 
