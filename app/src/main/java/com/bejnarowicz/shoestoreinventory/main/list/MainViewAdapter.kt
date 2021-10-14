@@ -21,7 +21,6 @@ class MainViewAdapter : ListAdapter<Shoe, MainViewAdapter.MyViewHolder>(ShoeDiff
         )
     }
 
-
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = getItem(position)
 
