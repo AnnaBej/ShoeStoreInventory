@@ -8,12 +8,12 @@
     </data>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/row_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         app:cardCornerRadius="6dp"
-        app:cardElevation="2dp"
-        android:id="@+id/row_layout">
+        app:cardElevation="2dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -31,6 +31,7 @@
                     android:id="@+id/iv_shoe_photo"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:contentDescription="@string/photo_of_your_choice"
                     android:scaleType="centerCrop"
                     tools:src="@drawable/red_trainers" />
             </androidx.cardview.widget.CardView>
@@ -83,4 +84,4 @@
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
-    </layout>
+</layout>

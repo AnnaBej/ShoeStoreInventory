@@ -35,14 +35,13 @@ class UpdateFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
         }
 
-        setSeekBar()
-
         binding.etName.setText(args.currentShoe.name)
         binding.etBrand.setText(args.currentShoe.brand)
         binding.numberUpdateSeekBar.text = args.currentShoe.stock
         binding.ivPhoto.setImageURI(Uri.parse(args.currentShoe.photo))
         binding.etComments.setText(args.currentShoe.comment).toString()
 
+        setSeekBar()
 
         setHasOptionsMenu(true)
 
@@ -104,10 +103,19 @@ class UpdateFragment : Fragment() {
         binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
 
-                binding.numberUpdateSeekBar.text = getString(R.string.seek_bar_result, progress)
-               // binding.seekBar.progress = progress //TODO doesn't work
-                //I would like to have the seek bar adjusted to the number
 
+                binding.numberUpdateSeekBar.text = getString(R.string.seek_bar_result, progress)
+                //TODO set the seekBar progress to the number of shoes
+
+                //TRIED:
+                //seekBar?.progress = args.currentShoe.stock.toInt()
+                //binding.seekBar.progress = Integer.parseInt(binding.numberUpdateSeekBar.toString())
+                //binding.seekBar.progress = progress
+                //seekBar?.progress = Integer.parseInt(binding.numberUpdateSeekBar.toString())
+                //binding.seekBar.setProgress(progress, false)
+                //seekBar?.setProgress(Integer.parseInt(binding.numberUpdateSeekBar.toString()))- crash app
+                //binding.seekBar.progress = progressNumber + val progressNumber = Integer.parseInt(binding.numberUpdateSeekBar.text.toString())- crash
+                //binding.seekBar.progress = Integer.parseInt(args.currentShoe.stock)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {

@@ -33,10 +33,18 @@ class MainViewFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-
         mShoeViewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
         mShoeViewModel.getAllShoes.observe(viewLifecycleOwner, { shoe ->
             adapter.submitList(shoe)
+
+            if (shoe.isEmpty()) {
+                binding.recyclerViewList.visibility = View.GONE
+                binding.tvNoRecords.visibility = View.VISIBLE
+            } else {
+                binding.recyclerViewList.visibility = View.VISIBLE
+                binding.tvNoRecords.visibility = View.GONE
+            }
+
         })
 
 
@@ -71,27 +79,12 @@ class MainViewFragment : Fragment() {
         builder.setPositiveButton("Yes") { _, _ ->
             mShoeViewModel.deleteAll()
             Toast.makeText(requireContext(), "Successfully deleted", Toast.LENGTH_SHORT).show()
-            displayList() //TODO ?
         }
         builder.setNegativeButton("No") { _, _ -> }
 
         builder.setTitle("Delete all inventory?")
         builder.setMessage("Are you sure you want to delete everything?")
         builder.create().show()
-
-    }
-
-//TODO message (tvNoRecord) doesn't display
-    private fun displayList() {
-
-        val list = listOf<Shoe>()
-        if (list.isEmpty()) {
-            binding.recyclerViewList.visibility = View.VISIBLE
-            binding.tvNoRecords.visibility = View.GONE
-        } else {
-            binding.recyclerViewList.visibility = View.GONE
-            binding.tvNoRecords.visibility = View.VISIBLE
-        }
     }
 
 }

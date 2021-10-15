@@ -60,7 +60,7 @@
         android:layout_margin="@dimen/margin_bottom_onB"
         android:clickable="true"
         android:focusable="true"
-        android:text="Back"
+        android:text="@string/back"
         android:textColor="@color/grey"
         android:textSize="@dimen/text_bottom_onB"
         app:layout_constraintBottom_toBottomOf="parent"

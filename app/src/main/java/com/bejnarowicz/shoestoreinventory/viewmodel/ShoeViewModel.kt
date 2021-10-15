@@ -10,7 +10,6 @@ import com.bejnarowicz.shoestoreinventory.database.model.Shoe
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
 class ShoeViewModel(application: Application) : AndroidViewModel(application) {
 
     val getAllShoes: LiveData<List<Shoe>>
@@ -22,10 +21,10 @@ class ShoeViewModel(application: Application) : AndroidViewModel(application) {
         getAllShoes = repository.getAllShoes
     }
 
-
     fun addShoe(shoe: Shoe) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addShoes(shoe)
+
         }
     }
 
@@ -46,6 +45,7 @@ class ShoeViewModel(application: Application) : AndroidViewModel(application) {
             repository.deleteAll()
         }
     }
+
 
 
 }

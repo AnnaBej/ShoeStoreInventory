@@ -30,22 +30,20 @@ class MainViewAdapter : ListAdapter<Shoe, MainViewAdapter.MyViewHolder>(ShoeDiff
         holder.binding.ivShoePhoto.setImageURI(Uri.parse(currentItem.photo))
 
         holder.binding.rowLayout.setOnClickListener {
-           val action = MainViewFragmentDirections.actionMainViewFragmentToUpdateFragment(currentItem)
+            val action =
+                MainViewFragmentDirections.actionMainViewFragmentToUpdateFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
-       }
-   }
+        }
+    }
 
 }
 
-class ShoeDiffCallback: DiffUtil.ItemCallback<Shoe>(){
+class ShoeDiffCallback : DiffUtil.ItemCallback<Shoe>() {
     override fun areItemsTheSame(oldItem: Shoe, newItem: Shoe): Boolean {
         return oldItem.id == newItem.id
-
     }
 
     override fun areContentsTheSame(oldItem: Shoe, newItem: Shoe): Boolean {
         return oldItem == newItem
     }
-
-
 }
