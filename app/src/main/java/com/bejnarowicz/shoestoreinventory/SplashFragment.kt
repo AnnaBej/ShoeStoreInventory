@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 
-
 class SplashFragment : Fragment() {
 
     override fun onCreateView(

@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bejnarowicz.shoestoreinventory.R
-import com.bejnarowicz.shoestoreinventory.database.model.Shoe
 import com.bejnarowicz.shoestoreinventory.databinding.FragmentMainViewBinding
 import com.bejnarowicz.shoestoreinventory.viewmodel.ShoeViewModel
 
@@ -44,9 +43,7 @@ class MainViewFragment : Fragment() {
                 binding.recyclerViewList.visibility = View.VISIBLE
                 binding.tvNoRecords.visibility = View.GONE
             }
-
         })
-
 
         binding.fabAdd.setOnClickListener {
             findNavController().navigate(R.id.action_mainViewFragment_to_addFragment)

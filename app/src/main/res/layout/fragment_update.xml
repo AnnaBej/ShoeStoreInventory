@@ -96,8 +96,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
                 android:text="@string/_0_100"
-                tools:text="24/100"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                tools:text="24/100" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -109,9 +109,9 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/round_corners"
                 android:backgroundTint="@color/primaryLightColor"
+                android:elevation="150dp"
                 android:padding="15dp"
                 android:text="@string/login"
-                android:elevation="150dp"
                 android:textColor="@color/primaryTextColor"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -140,10 +140,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10sp"
                     android:layout_marginBottom="20sp"
+                    android:clickable="true"
                     android:text="@string/sign_up"
                     android:textColor="@color/primaryLightColor"
                     android:textSize="20sp"
-                    android:clickable="true"
                     android:textStyle="bold" />
 
 

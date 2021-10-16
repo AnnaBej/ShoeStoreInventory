@@ -196,12 +196,12 @@ class AddFragment : Fragment() {
             .setPositiveButton("Go to settings") { _, _ ->
                 try { //we try send the user to settings when he/she could change the settings
                     val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-//                    val uri: Uri = Uri.fromParts(
-//                        "package",
-//                        packageName,//TODO packageName is unknown- doesn't work
-//                        null
-//                    )
-//                    intent.data = uri
+                    val uri: Uri = Uri.fromParts(
+                        "package",
+                        packageName,//TODO packageName is unknown- doesn't work
+                        null
+                    )
+                    intent.data = uri
                     startActivity(intent)
                 } catch (e: ActivityNotFoundException) {
                     e.printStackTrace()
