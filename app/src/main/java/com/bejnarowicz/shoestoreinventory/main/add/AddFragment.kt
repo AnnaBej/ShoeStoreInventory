@@ -194,7 +194,7 @@ class AddFragment : Fragment() {
         AlertDialog.Builder(requireContext())
             .setMessage("Please, turn on the permissions in settings to use this functionality")
             .setPositiveButton("Go to settings") { _, _ ->
-                try { //we try send the user to settings when he/she could change the settings
+                try { //trying to send the user to settings when he/she could change the settings
                     val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                     val uri: Uri = Uri.fromParts(
                         "package",

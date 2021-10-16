@@ -59,7 +59,7 @@
     <fragment
         android:id="@+id/viewPagerFragment"
         android:name="com.bejnarowicz.shoestoreinventory.onboarding.ViewPagerFragment"
-        android:label="fragment_view_pager"
+        android:label="View Pager"
         tools:layout="@layout/fragment_view_pager" >
         <action
             android:id="@+id/action_viewPagerFragment_to_mainViewFragment"
@@ -70,7 +70,7 @@
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.bejnarowicz.shoestoreinventory.SplashFragment"
-        android:label="fragment_splash"
+        android:label="Splash screen"
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
