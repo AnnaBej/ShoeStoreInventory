@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="shoe"
+            type="com.bejnarowicz.shoestoreinventory.database.model.Shoe" />
         <variable
             name="addFragment"
             type="com.bejnarowicz.shoestoreinventory.main.add.AddFragment" />
@@ -25,7 +27,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/name"
-
             app:boxStrokeColor="@color/box_stroke"
             app:endIconMode="clear_text"
             app:hintTextColor="@color/primaryTextColor"
@@ -37,6 +38,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_name"
                 android:layout_width="match_parent"
+                android:text="@={shoe.name}"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -58,6 +60,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_brand"
+                android:text="@={shoe.brand}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords" />
@@ -99,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
-                android:text="@string/_0_100"
+                android:text="@{@string/_0_100(shoe.stock)}"
                 android:textAlignment="center" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -128,6 +131,7 @@
             android:layout_marginBottom="20dp"
             android:autofillHints="Comment"
             android:hint="@string/comments"
+            android:text="@={shoe.comment}"
             android:inputType="text"
             app:layout_constraintBottom_toTopOf="@id/button_cancel"
             app:layout_constraintEnd_toEndOf="parent"

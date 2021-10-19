@@ -24,7 +24,6 @@ class ShoeViewModel(application: Application) : AndroidViewModel(application) {
     fun addShoe(shoe: Shoe) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addShoes(shoe)
-
         }
     }
 

@@ -85,7 +85,6 @@ class AddFragment : Fragment() {
                 Toast.LENGTH_LONG
             ).show()
         }
-
     }
 
     private fun inputCheck(name: String, brand: String, stock: String): Boolean {
@@ -101,7 +100,6 @@ class AddFragment : Fragment() {
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
             }
-
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
             }
         })
