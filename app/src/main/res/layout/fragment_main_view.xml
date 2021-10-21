@@ -6,7 +6,7 @@
     <data>
 
     </data>
-
+    <!-- Constraint Layout for the view to always display in the correct place -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -33,6 +33,7 @@ class MainViewFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         mShoeViewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
+
         mShoeViewModel.getAllShoes.observe(viewLifecycleOwner, { shoe ->
             adapter.submitList(shoe)
 

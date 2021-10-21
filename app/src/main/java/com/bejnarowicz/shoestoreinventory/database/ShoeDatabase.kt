@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.bejnarowicz.shoestoreinventory.database.model.Shoe
 
-@Database(entities = [Shoe::class], version = 4, exportSchema = false)
+@Database(entities = [Shoe::class], version = 5, exportSchema = false)
 abstract class ShoeDatabase : RoomDatabase() {
 
     abstract fun shoeDao() : ShoeDao

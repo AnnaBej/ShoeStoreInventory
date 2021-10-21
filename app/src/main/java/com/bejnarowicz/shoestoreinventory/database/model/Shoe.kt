@@ -14,7 +14,7 @@ data class Shoe(
     var name: String,
     var brand: String,
     var stock: String,
-    val photo: String, //image path
-    var comment: String
+    val photo: String?, //image path
+    var comment: String?
 
 ) : Parcelable

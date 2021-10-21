@@ -6,7 +6,7 @@
     <data>
 
     </data>
-
+    <!-- A very simple layout thus I chose the LinearLayout -->
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"

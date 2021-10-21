@@ -4,13 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="shoe"
             type="com.bejnarowicz.shoestoreinventory.database.model.Shoe" />
+
         <variable
             name="addFragment"
             type="com.bejnarowicz.shoestoreinventory.main.add.AddFragment" />
     </data>
+
+    <!-- This layout has many elements thus I chose the Constraint layout,
+    the elements will adjust to screen size -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -38,9 +43,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_name"
                 android:layout_width="match_parent"
-                android:text="@={shoe.name}"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:text="@={shoe.name}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -60,10 +65,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_brand"
-                android:text="@={shoe.brand}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:text="@={shoe.brand}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -102,8 +107,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
-                android:text="@{@string/_0_100(shoe.stock)}"
-                android:textAlignment="center" />
+                android:text="@={shoe.stock}"
+                android:textAlignment="center"
+                tools:text="21/100" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -112,17 +118,31 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/image_background"
+            android:background="@drawable/add_screen_image_placeholder"
             android:clickable="true"
             android:contentDescription="@string/add_a_shoe_icon"
             android:focusable="true"
-            android:onClick="@{()-> addFragment.setImage()}"
+            android:onClick="@{()-> addFragment.openGalleryForImage()}"
             android:scaleType="centerCrop"
-            android:src="@drawable/add_screen_image_placeholder"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/fab_add"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/et_comments"
             app:layout_constraintTop_toBottomOf="@id/ll_seek_bar" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:backgroundTint="@color/primaryColor"
+            android:contentDescription="@string/add_new_item"
+            android:onClick="@{()-> addFragment.openGalleryForImage()}"
+            android:src="@drawable/ic_baseline_add_24"
+            app:layout_constraintBottom_toTopOf="@id/et_comments"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_photo"
+            app:layout_constraintTop_toBottomOf="@id/ll_seek_bar" />
 
         <EditText
             android:id="@+id/et_comments"
@@ -131,8 +151,8 @@
             android:layout_marginBottom="20dp"
             android:autofillHints="Comment"
             android:hint="@string/comments"
-            android:text="@={shoe.comment}"
             android:inputType="text"
+            android:text="@={shoe.comment}"
             app:layout_constraintBottom_toTopOf="@id/button_cancel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

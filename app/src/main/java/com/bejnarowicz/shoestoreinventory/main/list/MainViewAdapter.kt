@@ -35,8 +35,8 @@ class MainViewAdapter : ListAdapter<Shoe, MainViewAdapter.MyViewHolder>(ShoeDiff
             holder.itemView.findNavController().navigate(action)
         }
     }
-
 }
+
 
 class ShoeDiffCallback : DiffUtil.ItemCallback<Shoe>() {
     override fun areItemsTheSame(oldItem: Shoe, newItem: Shoe): Boolean {

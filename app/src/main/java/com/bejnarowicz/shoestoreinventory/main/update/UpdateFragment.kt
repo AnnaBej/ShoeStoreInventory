@@ -30,16 +30,19 @@ class UpdateFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_update, container, false)
 
         viewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
+
         binding.apply {
             updateFragment = this@UpdateFragment
             lifecycleOwner = viewLifecycleOwner
+            shoe = Shoe(
+                0,
+                args.currentShoe.name,
+                args.currentShoe.brand,
+                args.currentShoe.stock,
+                args.currentShoe.photo,
+                args.currentShoe.comment
+            )
         }
-
-        binding.etName.setText(args.currentShoe.name)
-        binding.etBrand.setText(args.currentShoe.brand)
-        binding.numberUpdateSeekBar.text = args.currentShoe.stock
-        binding.ivPhoto.setImageURI(Uri.parse(args.currentShoe.photo))
-        binding.etComments.setText(args.currentShoe.comment).toString()
 
         setSeekBar()
 
@@ -49,29 +52,15 @@ class UpdateFragment : Fragment() {
     }
 
     fun updateItem() {
-        val name = binding.etName.text.toString()
-        val brand = binding.etBrand.text.toString()
-        val stock = binding.numberUpdateSeekBar.text.toString()
-        val photo = binding.ivPhoto.toString()
-        val comment = binding.etComments.text.toString()
 
-        if (inputCheck(name, brand, stock)) {
-            val updatedShoe = Shoe(args.currentShoe.id, name, brand, stock, photo, comment)
-            viewModel.updateShoe(updatedShoe)
-            Toast.makeText(requireContext(), "Shoe listing updated", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_updateFragment_to_mainViewFragment)
-        } else {
-            Toast.makeText(
-                requireContext(),
-                "Please filled out the required fields",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
+        val shoe = binding.shoe!!
+        viewModel.updateShoe(shoe)
+        Toast.makeText(requireContext(), "Shoe listing updated", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_updateFragment_to_mainViewFragment)
+
     }
 
-    private fun inputCheck(name: String, brand: String, stock: String): Boolean {
-        return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(brand) && TextUtils.isEmpty(stock))
-    }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.delete_menu, menu)
@@ -120,6 +109,7 @@ class UpdateFragment : Fragment() {
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
             }
+
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
             }
         })
@@ -136,6 +126,5 @@ class UpdateFragment : Fragment() {
         builder.setMessage("Your inputted data will be lost")
         builder.create().show()
     }
-
 
 }

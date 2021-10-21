@@ -3,12 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+        <data>
+            <variable
+                name="shoe"
+                type="com.bejnarowicz.shoestoreinventory.database.model.Shoe" />
         <variable
             name="updateFragment"
             type="com.bejnarowicz.shoestoreinventory.main.update.UpdateFragment" />
     </data>
 
+    <!-- This layout has many elements thus I chose the Constraint layout,
+     the elements will adjust to screen size.
+      It's the same layout as in fragment_add, instead of save button, there is 'update'
+      button here-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,6 +39,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_name"
                 android:layout_width="match_parent"
+                android:text="@={shoe.name}"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -53,6 +61,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_brand"
+                android:text="@={shoe.brand}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords" />
@@ -83,7 +92,7 @@
                 android:id="@+id/seek_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.9"
+                android:layout_weight="0.8"
                 android:max="100"
                 android:progressTint="@color/primaryColor"
                 android:thumb="@drawable/seek_bar_image"
@@ -94,9 +103,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
-                android:text="@string/_0_100"
+                android:text="@={shoe.stock}"
                 android:textAlignment="center"
-                tools:text="24/100" />
+                />
+
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -108,6 +118,7 @@
             android:contentDescription="@string/add_a_shoe_icon"
             android:src="@drawable/add_screen_image_placeholder"
             app:layout_constraintEnd_toEndOf="parent"
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ll_seek_bar" />
 
@@ -129,6 +140,7 @@
             android:autofillHints="Comment"
             android:hint="@string/comments"
             android:inputType="text"
+            android:text="@={shoe.comment}"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@id/button_cancel"
             app:layout_constraintEnd_toEndOf="parent"
