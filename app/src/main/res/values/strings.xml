@@ -25,7 +25,7 @@
     <string name="comments">Comments…</string>
     <string name="brand">Brand</string>
     <string name="in_stock">In Stock:</string>
-    <string name="add_a_shoe_icon">add a shoe icon</string>
+    <string name="add_photo">add a photo</string>
     <string name="add_color">add color</string>
     <string name="add_new_item">Add new item</string>
     <string name="nothing_to_display">No shoes to display yet, please add a pair</string>

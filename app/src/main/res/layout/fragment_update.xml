@@ -3,13 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-        <data>
-            <variable
-                name="shoe"
-                type="com.bejnarowicz.shoestoreinventory.database.model.Shoe" />
+    <data>
+
+        <variable
+            name="shoe"
+            type="com.bejnarowicz.shoestoreinventory.database.model.Shoe" />
+
         <variable
             name="updateFragment"
             type="com.bejnarowicz.shoestoreinventory.main.update.UpdateFragment" />
+
+        <import type="android.net.Uri" />
     </data>
 
     <!-- This layout has many elements thus I chose the Constraint layout,
@@ -39,9 +43,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_name"
                 android:layout_width="match_parent"
-                android:text="@={shoe.name}"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:text="@={shoe.name}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -61,10 +65,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_brand"
-                android:text="@={shoe.brand}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:text="@={shoe.brand}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -104,8 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
                 android:text="@={shoe.stock}"
-                android:textAlignment="center"
-                />
+                android:textAlignment="center" />
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -117,21 +120,21 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/add_screen_image_placeholder"
             android:clickable="true"
-            android:contentDescription="@string/add_a_shoe_icon"
+            android:contentDescription="@string/add_photo"
             android:focusable="true"
             android:onClick="@{()-> updateFragment.openGalleryForImage()}"
             android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@id/et_comments"
             app:layout_constraintEnd_toStartOf="@id/fab_add"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/et_comments"
             app:layout_constraintTop_toBottomOf="@id/ll_seek_bar" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="@color/primaryColor"
             android:contentDescription="@string/add_new_item"
             android:onClick="@{()-> updateFragment.openGalleryForImage()}"

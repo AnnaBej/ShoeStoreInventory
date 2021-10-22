@@ -39,7 +39,7 @@ class AddFragment : Fragment() {
 
         binding.apply {
             addFragment = this@AddFragment
-            shoe = Shoe(0, "", "", "", "", "")
+            shoe = Shoe(0, "", "", "0/100", "", "")
             lifecycleOwner = viewLifecycleOwner
         }
 
@@ -97,6 +97,7 @@ class AddFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == GALLERY_REQUEST_CODE) {
             binding.ivPhoto.setImageURI(data?.data)
+            binding.shoe?.photo = data?.data?.toString() ?: ""
         }
     }
 

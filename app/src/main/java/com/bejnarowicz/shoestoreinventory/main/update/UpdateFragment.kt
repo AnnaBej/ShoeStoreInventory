@@ -54,12 +54,12 @@ class UpdateFragment : Fragment() {
     fun updateItem() {
 
         val shoe = binding.shoe!!
+
         viewModel.updateShoe(shoe)
         Toast.makeText(requireContext(), "Shoe listing updated", Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.action_updateFragment_to_mainViewFragment)
 
     }
-
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -92,19 +92,8 @@ class UpdateFragment : Fragment() {
         binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
 
-
                 binding.numberUpdateSeekBar.text = getString(R.string.seek_bar_result, progress)
-                //TODO set the seekBar progress to the number of shoes
 
-                //TRIED:
-                //seekBar?.progress = args.currentShoe.stock.toInt()
-                //binding.seekBar.progress = Integer.parseInt(binding.numberUpdateSeekBar.toString())
-                //binding.seekBar.progress = progress
-                //seekBar?.progress = Integer.parseInt(binding.numberUpdateSeekBar.toString())
-                //binding.seekBar.setProgress(progress, false)
-                //seekBar?.setProgress(Integer.parseInt(binding.numberUpdateSeekBar.toString()))- crash app
-                //binding.seekBar.progress = progressNumber + val progressNumber = Integer.parseInt(binding.numberUpdateSeekBar.text.toString())- crash
-                //binding.seekBar.progress = Integer.parseInt(args.currentShoe.stock)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -136,7 +125,10 @@ class UpdateFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == GALLERY_REQUEST_CODE) {
+
+            binding.shoe?.photo = data?.data?.toString()
             binding.ivPhoto.setImageURI(data?.data)
+
         }
     }
 
