@@ -126,9 +126,8 @@ class UpdateFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == GALLERY_REQUEST_CODE) {
 
-            binding.shoe?.photo = data?.data?.toString()
             binding.ivPhoto.setImageURI(data?.data)
-
+            binding.shoe?.photo = data?.data?.toString()
         }
     }
 

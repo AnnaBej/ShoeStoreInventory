@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="shoe"
             type="com.bejnarowicz.shoestoreinventory.database.model.Shoe" />
@@ -124,6 +123,7 @@
             android:focusable="true"
             android:onClick="@{()-> updateFragment.openGalleryForImage()}"
             android:scaleType="centerCrop"
+            android:src="@{Uri.parse(shoe.photo)}"
             app:layout_constraintBottom_toTopOf="@id/et_comments"
             app:layout_constraintEnd_toStartOf="@id/fab_add"
             app:layout_constraintStart_toStartOf="parent"
